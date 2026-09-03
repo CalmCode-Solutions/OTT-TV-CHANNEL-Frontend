@@ -54,11 +54,6 @@ function Home() {
           </button>
 
           <button className="nav-item">
-            <span>▤</span>
-            Movies
-          </button>
-
-          <button className="nav-item">
             <span>♡</span>
             My List
           </button>
@@ -230,9 +225,7 @@ function Home() {
           </div>
 
 
-          <div className="copyright">
-            © 2026 Cinema. All rights reserved.
-          </div>
+         
 
         </footer>
 
