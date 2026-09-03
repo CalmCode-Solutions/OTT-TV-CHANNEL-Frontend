@@ -26,17 +26,31 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   overflow-x: hidden;
   line-height: 1.5;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 
 a {
@@ -51,6 +65,12 @@ button {
   background: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
