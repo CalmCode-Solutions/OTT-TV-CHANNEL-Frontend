@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+import Home from "./pages/home";
+
+function App() {
+  return <Home />;
+}
+
+export default App;
+=======
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/layout/Sidebar';
@@ -34,3 +43,4 @@ export default function App() {
     </Router>
   );
 }
+>>>>>>> 584c76add55ebdd7b752a10ebb1e1047d8925b76
