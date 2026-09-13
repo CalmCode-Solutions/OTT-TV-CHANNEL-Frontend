@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import VideoPlayer from "../components/common/VideoPlayer";
@@ -17,3 +18,4 @@ export default function Watch() {
     />
   );
 }
+
