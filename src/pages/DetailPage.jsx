@@ -22,7 +22,7 @@ function DetailPage() {
   };
 
   const handlePlayNow = () => {
-    // Watch Page එකට navigate වීම
+   
     navigate(`/watch/${id || 1}`);
   };
 
