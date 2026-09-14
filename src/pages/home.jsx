@@ -74,7 +74,7 @@ export default function Home() {
              
               <button 
                 className="watch-button"
-                onClick={() => handlePlayMovie("hero-neon", "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")}
+                onClick={() => handlePlayMovie("hero-neon", "https://www.w3schools.com/html/mov_bbb.mp4")}
               >
                 ▶ &nbsp; Watch Now
               </button>
