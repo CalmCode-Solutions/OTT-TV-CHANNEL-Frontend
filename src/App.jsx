@@ -19,11 +19,6 @@ import Movies from './pages/movies';
 import TVShows from './pages/tvshows';
 
 
-// Placeholders for other members
-const MoviesPlaceholder = () => <div style={{ padding: '24px', color: 'var(--text)' }}><h2>Movies Catalog (Member 3 will build here)</h2></div>;
-const TVShowsPlaceholder = () => <div style={{ padding: '24px', color: 'var(--text)' }}><h2>TV Shows (Member 3 will build here)</h2></div>;
-
-// Sidebar of App Layout 
 const MainAppLayout = () => (
   <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg)' }}>
     <Sidebar />
@@ -39,10 +34,8 @@ const MainAppLayout = () => (
           <Route path="/history" element={<div style={{ padding: '32px', color: 'var(--text)' }}><h2>Watch History</h2><p style={{ color: 'var(--text-dim)' }}>Recently watched content will appear here.</p></div>} />
           <Route path="/settings" element={<div style={{ padding: '32px', color: 'var(--text)' }}><h2>Account & App Settings</h2><p style={{ color: 'var(--text-dim)' }}>Manage profile preferences, playback quality, and subtitles.</p></div>} />
 
-
           <Route path="/detail/:id" element={<DetailPage />} />
           <Route path="/watch/:id" element={<Watch />} />
-
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -61,7 +54,7 @@ export default function App() {
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/login" element={<Login />} />
 
-
+       
         <Route path="/*" element={<MainAppLayout />} />
       </Routes>
     </Router>

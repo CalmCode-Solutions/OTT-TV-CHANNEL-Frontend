@@ -6,7 +6,7 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate('/home'); 
+    navigate('/'); 
   };
 
   return (
