@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Bell, User, LogOut, Settings, Crown, CheckCircle2, Film } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+
+  const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
@@ -58,8 +61,8 @@ export default function Navbar() {
       {/* Search Input */}
       <div style={{ position: 'relative', width: '340px' }}>
         <Search size={16} color="var(--text-muted)" style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)' }} />
-        <input 
-          type="text" 
+        <input
+          type="text"
           placeholder="Search movies, TV shows..."
           style={{
             width: '100%',
@@ -76,10 +79,10 @@ export default function Navbar() {
 
       {/* Right Actions */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        
+
         {/* === Notification Bell === */}
         <div style={{ position: 'relative' }} ref={notifRef}>
-          <button 
+          <button
             onClick={() => {
               setShowNotifications(!showNotifications);
               setShowProfileMenu(false);
@@ -157,7 +160,7 @@ export default function Navbar() {
 
         {/* === User Profile Avatar === */}
         <div style={{ position: 'relative' }} ref={profileRef}>
-          <div 
+          <div
             onClick={() => {
               setShowProfileMenu(!showProfileMenu);
               setShowNotifications(false);
@@ -212,9 +215,9 @@ export default function Navbar() {
                 color: 'var(--text-dim)', fontSize: '13px', textAlign: 'left',
                 width: '100%', transition: '0.2s'
               }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--surface)'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
-              onClick={() => alert('Profile settings coming soon!')}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--surface)'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
+                onClick={() => alert('Profile settings coming soon!')}
               >
                 <User size={15} /> My Profile
               </button>
@@ -225,24 +228,25 @@ export default function Navbar() {
                 color: 'var(--text-dim)', fontSize: '13px', textAlign: 'left',
                 width: '100%', transition: '0.2s'
               }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--surface)'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
-              onClick={() => alert('Settings coming soon!')}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--surface)'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
+                onClick={() => alert('Settings coming soon!')}
               >
                 <Settings size={15} /> Account Settings
               </button>
 
               <div style={{ height: '1px', backgroundColor: 'var(--border)', margin: '4px 0' }} />
 
-              <button style={{
-                display: 'flex', alignItems: 'center', gap: '10px',
-                padding: '9px 12px', borderRadius: 'var(--radius-sm)',
-                color: 'var(--accent)', fontSize: '13px', textAlign: 'left',
-                width: '100%', transition: '0.2s'
-              }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--accent-soft)'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
-              onClick={() => alert('Sign out clicked')}
+              <button
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '10px',
+                  padding: '9px 12px', borderRadius: 'var(--radius-sm)',
+                  color: 'var(--accent)', fontSize: '13px', textAlign: 'left',
+                  width: '100%', transition: '0.2s', cursor: 'pointer', background: 'transparent', border: 'none'
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--accent-soft)'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
+                onClick={() => navigate('/login')}
               >
                 <LogOut size={15} /> Sign Out
               </button>
