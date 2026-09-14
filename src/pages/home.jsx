@@ -10,28 +10,28 @@ const movies = [
     title: "THE LAST PULL",
     tone: "pink",
     image: "https://upload.wikimedia.org/wikipedia/en/8/8a/The_Dark_Knight_poster.jpg",
-    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    video: "https://raw.githubusercontent.com/intel-iot-devkit/sample-videos/master/car-detection.mp4",
   },
   {
     id: "m-2",
     title: "CONSTRUCTED",
     tone: "purple",
     image: "https://upload.wikimedia.org/wikipedia/en/7/7f/Inception_ver3.jpg",
-    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    video: "https://raw.githubusercontent.com/intel-iot-devkit/sample-videos/master/person-bicycle-car-detection.mp4",
   },
   {
     id: "m-3",
     title: "FRAME",
     tone: "orange",
     image: "https://upload.wikimedia.org/wikipedia/en/d/df/3_Idiots_poster.jpg",
-    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   },
   {
     id: "m-4",
     title: "FRACTURED",
     tone: "cyan",
     image: "https://upload.wikimedia.org/wikipedia/en/8/8a/Dangal_Poster.jpg",
-    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
   },
 ];
 
