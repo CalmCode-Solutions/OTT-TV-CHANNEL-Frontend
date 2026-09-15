@@ -6,15 +6,16 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate('/'); 
+    localStorage.setItem('isLoggedIn', 'true');
+    navigate('/');
   };
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center', 
-      minHeight: '100vh', 
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: '100vh',
       backgroundColor: '#060610',
       fontFamily: "'DM Sans', sans-serif"
     }}>
@@ -30,17 +31,17 @@ export default function Login() {
         <p style={{ color: '#8888a8', marginBottom: '32px', fontSize: '15px', marginTop: 0 }}>
           Sign in to continue watching
         </p>
-        
+
         <form onSubmit={handleLogin}>
           {/* Email Input */}
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', fontSize: '13px', color: '#8888a8', marginBottom: '8px', fontWeight: '500' }}>
               Email Address
             </label>
-            <input 
-              type="email" 
-              placeholder="you@example.com" 
-              required 
+            <input
+              type="email"
+              placeholder="you@example.com"
+              required
               style={{
                 width: '100%',
                 padding: '14px 16px',
@@ -54,16 +55,16 @@ export default function Login() {
               }}
             />
           </div>
-          
+
           {/* Password Input */}
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', fontSize: '13px', color: '#8888a8', marginBottom: '8px', fontWeight: '500' }}>
               Password
             </label>
-            <input 
-              type="password" 
-              placeholder="Enter your password" 
-              required 
+            <input
+              type="password"
+              placeholder="Enter your password"
+              required
               style={{
                 width: '100%',
                 padding: '14px 16px',
@@ -77,21 +78,21 @@ export default function Login() {
               }}
             />
           </div>
-          
+
           {/* Options Row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#8888a8', cursor: 'pointer' }}>
-              <input type="checkbox" style={{ accentColor: '#ff2d55', width: '16px', height: '16px' }} /> 
+              <input type="checkbox" style={{ accentColor: '#ff2d55', width: '16px', height: '16px' }} />
               Remember me
             </label>
             <a href="#" style={{ fontSize: '14px', color: '#ff2d55', textDecoration: 'none' }}>
               Forgot Password?
             </a>
           </div>
-          
+
           {/* Submit Button */}
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             style={{
               width: '100%',
               padding: '16px',

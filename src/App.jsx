@@ -18,6 +18,17 @@ import DetailPage from './pages/DetailPage';
 import Movies from './pages/movies';
 import TVShows from './pages/tvshows';
 
+const useAuth = () => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  return { isLoggedIn };
+};
+
+
+const ProtectedRoute = ({ children }) => {
+  const { isLoggedIn } = useAuth();
+  
+  return isLoggedIn ? children : <Navigate to="/splash" replace />;
+};
 
 const MainAppLayout = () => (
   <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg)' }}>
@@ -26,6 +37,7 @@ const MainAppLayout = () => (
       <Navbar />
       <main style={{ flex: 1 }}>
         <Routes>
+          
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/tv-shows" element={<TVShows />} />
@@ -49,13 +61,20 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Auth Flow */}
+       
         <Route path="/splash" element={<Splash />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/login" element={<Login />} />
 
-       
-        <Route path="/*" element={<MainAppLayout />} />
+        
+        <Route 
+          path="/*" 
+          element={
+            <ProtectedRoute>
+              <MainAppLayout />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
     </Router>
   );

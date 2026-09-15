@@ -6,6 +6,10 @@ import { useNavigate } from 'react-router-dom';
 export default function Navbar() {
 
   const navigate = useNavigate();
+  const handleSignOut = () => {
+  localStorage.removeItem('isLoggedIn'); 
+  navigate('/splash'); 
+};
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
@@ -246,7 +250,7 @@ export default function Navbar() {
                 }}
                 onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--accent-soft)'}
                 onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
-                onClick={() => navigate('/login')}
+                onClick={handleSignOut}
               >
                 <LogOut size={15} /> Sign Out
               </button>
