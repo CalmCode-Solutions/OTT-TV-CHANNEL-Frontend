@@ -1,0 +1,584 @@
+/* ================================
+   MOVIES CATALOG PAGE
+================================ */
+
+.movies-page {
+  padding: 20px 26px 40px;
+  min-height: calc(100vh - var(--topbar-h));
+  background: var(--bg);
+}
+
+/* ================================
+   PAGE HEADER
+================================ */
+
+.movies-heading {
+  margin-bottom: 18px;
+}
+
+.movies-heading h1 {
+  font-size: 27px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* ================================
+   TOOLBAR
+================================ */
+
+.movies-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.genre-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.genre-button {
+  min-width: 0;
+  padding: 8px 15px;
+  border: 1px solid rgba(122, 122, 190, 0.22);
+  border-radius: 7px;
+  background: #181833;
+  color: #e7e7f6;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.genre-button:hover {
+  background: #22224a;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.genre-button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ================================
+   FILTER / SORT CONTROLS
+================================ */
+
+.catalog-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.select-control {
+  position: relative;
+  min-width: 122px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 7px;
+
+  background: var(--surface);
+  color: var(--text-dim);
+}
+
+.select-control select {
+  width: 100%;
+  min-width: 0;
+
+  border: 0;
+  outline: 0;
+
+  color: var(--text);
+  background: transparent;
+
+  font-size: 11px;
+  cursor: pointer;
+
+  padding: 0 18px 0 0;
+
+  appearance: none;
+}
+
+.select-control svg:last-child {
+  position: absolute;
+  right: 8px;
+  pointer-events: none;
+  color: var(--text-muted);
+}
+
+.select-control option {
+  background: var(--card);
+  color: var(--text);
+}
+
+.sort-control {
+  min-width: 145px;
+}
+
+/* ================================
+   RESULT COUNT
+================================ */
+
+.movies-result-meta {
+  min-height: 18px;
+  margin: 0 2px 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.clear-filters {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ================================
+   MOVIE GRID
+================================ */
+
+.movies-grid {
+  display: grid;
+
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+
+  column-gap: 20px;
+  row-gap: 20px;
+
+  align-items: start;
+}
+
+/* ================================
+   MOVIE CARD
+================================ */
+
+.catalog-card-link {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.catalog-card {
+  width: 100%;
+  min-width: 0;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.catalog-card-link:hover .catalog-card {
+  transform: translateY(-5px);
+}
+
+/* ================================
+   POSTER
+================================ */
+
+.catalog-poster {
+  position: relative;
+
+  width: 100%;
+
+  /* This is the important part */
+  aspect-ratio: 2 / 3;
+
+  border-radius: 11px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* subtle light effect */
+
+.catalog-poster::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.11),
+      transparent 34%
+    );
+
+  pointer-events: none;
+}
+
+/* ================================
+   POSTER EMOJI
+================================ */
+
+.catalog-poster-emoji {
+  position: relative;
+  z-index: 2;
+
+  font-size: 35px;
+
+  filter:
+    drop-shadow(
+      0 4px 10px rgba(0, 0, 0, 0.22)
+    );
+}
+
+/* ================================
+   POSTER HOVER OVERLAY
+================================ */
+
+.catalog-poster-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(6, 6, 16, 0.88),
+      transparent 60%
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+
+.catalog-card-link:hover .catalog-poster-overlay {
+  opacity: 1;
+}
+
+/* ================================
+   PLAY BUTTON
+================================ */
+
+.catalog-play {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  font-size: 18px;
+
+  padding-left: 2px;
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* ================================
+   CARD INFORMATION
+================================ */
+
+.catalog-card-info {
+  padding-top: 7px;
+  min-width: 0;
+}
+
+.catalog-card-info h3 {
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.catalog-card-info p {
+  margin-top: 3px;
+
+  color: var(--text-dim);
+
+  font-size: 10px;
+
+  white-space: nowrap;
+}
+
+/* ================================
+   RATING
+================================ */
+
+.catalog-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+
+  margin-top: 3px;
+
+  color: var(--gold);
+
+  font-size: 10px;
+}
+
+/* ================================
+   POSTER COLORS
+================================ */
+
+.poster-coral {
+  background: linear-gradient(
+    135deg,
+    #ff6b6b,
+    #ee5a24
+  );
+}
+
+.poster-blue {
+  background: linear-gradient(
+    135deg,
+    #54a0ff,
+    #2e86de
+  );
+}
+
+.poster-purple {
+  background: linear-gradient(
+    135deg,
+    #5f27cd,
+    #341f97
+  );
+}
+
+.poster-pink {
+  background: linear-gradient(
+    135deg,
+    #ff9ff3,
+    #f368e0
+  );
+}
+
+.poster-teal {
+  background: linear-gradient(
+    135deg,
+    #00d2d3,
+    #01a3a4
+  );
+}
+
+.poster-orange {
+  background: linear-gradient(
+    135deg,
+    #ffa502,
+    #e67e22
+  );
+}
+
+.poster-green {
+  background: linear-gradient(
+    135deg,
+    #2ed573,
+    #009432
+  );
+}
+
+.poster-red {
+  background: linear-gradient(
+    135deg,
+    #ff4757,
+    #c0392b
+  );
+}
+
+.poster-violet {
+  background: linear-gradient(
+    135deg,
+    #a55eea,
+    #6c5ce7
+  );
+}
+
+.poster-emerald {
+  background: linear-gradient(
+    135deg,
+    #26de81,
+    #20bf6b
+  );
+}
+
+.poster-rose {
+  background: linear-gradient(
+    135deg,
+    #fd79a8,
+    #e84393
+  );
+}
+
+.poster-sky {
+  background: linear-gradient(
+    135deg,
+    #74b9ff,
+    #0984e3
+  );
+}
+
+.poster-amber {
+  background: linear-gradient(
+    135deg,
+    #fdcb6e,
+    #f39c12
+  );
+}
+
+.poster-brick {
+  background: linear-gradient(
+    135deg,
+    #e17055,
+    #d63031
+  );
+}
+
+.poster-cyan {
+  background: linear-gradient(
+    135deg,
+    #00cec9,
+    #00b894
+  );
+}
+
+.poster-lavender {
+  background: linear-gradient(
+    135deg,
+    #6c5ce7,
+    #a29bfe
+  );
+}
+
+.catalog-poster-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ================================
+   EMPTY STATE
+================================ */
+
+.empty-movies {
+  min-height: 360px;
+
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-dim);
+}
+
+.empty-movies span {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.empty-movies h2 {
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.empty-movies p {
+  font-size: 12px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1450px) {
+  .movies-grid {
+    grid-template-columns: repeat(
+      6,
+      minmax(0, 1fr)
+    );
+  }
+}
+
+@media (max-width: 1100px) {
+  .movies-toolbar {
+    flex-direction: column;
+  }
+
+  .catalog-controls {
+    justify-content: flex-start;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(
+      5,
+      minmax(0, 1fr)
+    );
+  }
+}
+
+@media (max-width: 820px) {
+  .movies-grid {
+    grid-template-columns: repeat(
+      4,
+      minmax(0, 1fr)
+    );
+  }
+}
+
+@media (max-width: 600px) {
+  .movies-page {
+    padding: 18px 14px 30px;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+    gap: 16px;
+  }
+
+  .catalog-controls {
+    width: 100%;
+  }
+
+  .select-control,
+  .sort-control {
+    flex: 1;
+  }
+}
